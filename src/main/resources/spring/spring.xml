@@ -2,13 +2,15 @@
         xmlns="http://www.springframework.org/schema/beans"
         xmlns:camel="http://camel.apache.org/schema/spring"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="
-        http://www.springframework.org/schema/beans
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://camel.apache.org/schema/spring
-        http://camel.apache.org/schema/spring/camel-spring.xsd">
+        http://camel.apache.org/schema/spring/camel-spring.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <camel:camelContext>
-        <camel:routeBuilder ref="myRouteBuilder"/>
+    <context:component-scan base-package="nl.sytac.edu.components"/>
+
+    <camel:camelContext id="camelContext">
+        <camel:routeBuilder ref="simpleRouteBuilder"/>
     </camel:camelContext>
 </beans>
