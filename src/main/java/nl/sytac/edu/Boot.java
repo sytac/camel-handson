@@ -1,10 +1,7 @@
 package nl.sytac.edu;
 
-import nl.sytac.edu.components.routes.SimpleRouteBuilder;
-import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.spring.javaconfig.CamelConfiguration;
 import org.apache.camel.spring.javaconfig.Main;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -18,15 +15,12 @@ public class Boot extends CamelConfiguration {
 
         Main main = new Main();
         //use any route builder and components declared within this package
-        main.setBasedPackages("nl.sytac.edu.components");
+        main.setFileApplicationContextUri("classpath:/spring/spring.xml");
+        main.setBasedPackages("nl.sytac.edu");
 
         main.run();
 
     }
 
 
-    @Bean
-    public RouteBuilder getSimpleRouteBuilder() {
-        return new SimpleRouteBuilder();
-    }
 }
