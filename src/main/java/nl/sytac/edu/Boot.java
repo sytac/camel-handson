@@ -15,7 +15,7 @@ public class Boot extends CamelConfiguration {
 
         Main main = new Main();
         //use any route builder and components declared within this package
-        main.setFileApplicationContextUri("classpath:/spring/spring.xml");
+        main.setApplicationContextUri("/spring/spring.xml");
         main.setBasedPackages("nl.sytac.edu");
 
         main.run();
