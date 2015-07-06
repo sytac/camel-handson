@@ -11,6 +11,7 @@
     <url>http://maven.apache.org</url>
     <properties>
         <camel.version>2.15.1</camel.version>
+        <cxf-version>3.0.4</cxf-version>
     </properties>
 
     <dependencies>
@@ -54,7 +55,11 @@
             <version>${camel.version}</version>
         </dependency>
 
-
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-transports-http-jetty</artifactId>
+            <version>${cxf-version}</version>
+        </dependency>
 
     </dependencies>
 

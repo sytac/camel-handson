@@ -5,7 +5,7 @@
               http://camel.apache.org/schema/cxf http://camel.apache.org/schema/cxf/camel-cxf.xsd
               http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
 
-        <cxf:rsServer id="restInventory" abstract="true" address="localhost:8000/services"
+        <cxf:rsServer id="restInventory" address="localhost:8000/services"
                 serviceClass="nl.sytac.edu.rest.InventoryResource"/>
 
 
