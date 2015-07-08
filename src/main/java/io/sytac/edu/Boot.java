@@ -1,4 +1,4 @@
-package nl.sytac.edu;
+package io.sytac.edu;
 
 import org.apache.camel.spring.javaconfig.CamelConfiguration;
 import org.apache.camel.spring.javaconfig.Main;
@@ -17,7 +17,7 @@ public class Boot extends CamelConfiguration {
 
         Main main = new Main();
         //use any route builder and components declared within this package
-        main.setBasedPackages("nl.sytac.edu");
+        main.setBasedPackages("io.sytac.edu");
 
         main.run();
 

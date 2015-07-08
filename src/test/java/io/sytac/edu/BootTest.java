@@ -1,4 +1,4 @@
-package nl.sytac.edu;
+package io.sytac.edu;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
