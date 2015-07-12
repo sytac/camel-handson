@@ -8,5 +8,4 @@
         <cxf:rsServer id="restInventory" address="http://localhost:8000/services"
                 serviceClass="io.sytac.edu.rest.InventoryResource" loggingFeatureEnabled="true"/>
 
-
 </beans>
