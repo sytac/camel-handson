@@ -12,6 +12,7 @@ public class SimpleRouteBuilder extends RouteBuilder {
     public void configure() throws Exception {
         from("cxfrs:bean:restInventory")
             .routeId("restInventoryRoute")
+            .to("file:///tmp/inventory?fileName=inventory-${date:now:yyyyMMdd@HHmmssSS}.json")
             .setBody(constant(new Response("Ok", "stock update received")));
     }
 }
