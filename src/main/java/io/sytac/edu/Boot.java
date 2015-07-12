@@ -1,5 +1,7 @@
 package io.sytac.edu;
 
+import com.mongodb.Mongo;
+import com.mongodb.MongoClient;
 import org.apache.camel.spring.javaconfig.CamelConfiguration;
 import org.apache.camel.spring.javaconfig.Main;
 import org.codehaus.jackson.jaxrs.JacksonJaxbJsonProvider;
@@ -8,6 +10,8 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
+
+import java.net.UnknownHostException;
 
 /**
  * We extend CamelConfiguration so we can build a Camel Context using purely annotated classes
@@ -44,5 +48,11 @@ public class Boot extends CamelConfiguration {
     @Bean
     public ObjectMapper objectMapper() {
         return new ObjectMapper();
+    }
+
+    @Bean(name = "mongoClient")
+    public Mongo mongoDb() throws UnknownHostException {
+        //default port on localhost
+        return new MongoClient("localhost", 27017);
     }
 }
