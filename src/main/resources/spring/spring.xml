@@ -3,9 +3,18 @@
        xmlns:cxf="http://camel.apache.org/schema/cxf"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
               http://camel.apache.org/schema/cxf http://camel.apache.org/schema/cxf/camel-cxf.xsd
-              http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+              http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
+               http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd">
+
+
+    <import resource="classpath:META-INF/cxf/cxf.xml"/>
 
         <cxf:rsServer id="restInventory" address="http://localhost:8000/services"
-                serviceClass="io.sytac.edu.rest.InventoryResource" loggingFeatureEnabled="true"/>
+                serviceClass="io.sytac.edu.rest.InventoryResource" loggingFeatureEnabled="true">
+            <cxf:providers>
+                <ref bean="jacksonJsonProvider"/>
+            </cxf:providers>
+
+        </cxf:rsServer>
 
 </beans>
