@@ -12,8 +12,14 @@ public class SimpleRouteBuilder extends RouteBuilder {
     public void configure() throws Exception {
         from("cxfrs:bean:restInventory")
             .routeId("restInventoryRoute")
-            .to("file:///tmp/inventory?fileName=inventory-${date:now:yyyyMMdd@HHmmssSS}.json")
-            .to("mongodb:mongoClient?database=inventory&collection=updates&operation=save")
+                .choice()
+                    .when().jsonpath("$[?(@.shoes)]")
+                        .to("file:///tmp/inventory?fileName=inventory-${date:now:yyyyMMdd@HHmmssSS}.json")
+                    .when().jsonpath("$[?(@.jeans)]")
+                        .to("mongodb:mongoClient?database=inventory&collection=updates&operation=save")
+                    .otherwise()
+                        .to("file:///tmp/inventory?fileName=error-${date:now:yyyyMMdd@HHmmssSS}.json")
+                .end()
             .setBody(constant(new Response("Ok", "stock update received")));
     }
 }
