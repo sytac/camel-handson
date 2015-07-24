@@ -11,12 +11,10 @@ import javax.ws.rs.core.Response;
  */
 
 @Path("/inventory/status")
-public class InventoryResource {
+public interface InventoryResource {
 
     @POST
     @Consumes("application/json")
     @Produces("application/json")
-    public Response updateStatus(String status) {
-        return null;
-    }
+    Response updateStatus(String status);
 }
